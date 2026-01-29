@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Spaceion
 
-## Getting Started
+**The Distributed Compute Protocol for the AI Era.**
 
-First, run the development server:
+Spaceion is a high-performance landing page representing the next evolution in decentralized infrastructure. Built with a focus on "High-Density Swiss" design principles, it combines neo-minimalist aesthetics with complex, data-rich visualizations to convey trust, scale, and technical superiority.
+
+![Spaceion Hero](public/og-image.jpg)
+
+## 🚀 Key Features
+
+- **Holographic Global Mesh**: Interactive WebGL-style visualization of distributed nodes using SVG and Framer Motion.
+- **High-Density Bento Grid**: Sophisticated layout system for displaying technical metrics and infrastructure stats.
+- **Orbital Command Interface**: Animated, sci-fi inspired UI elements with glassmorphism and motion physics.
+- **Performance First**: Server-Side Rendering (SSR) optimized with Next.js 15 and React 19.
+- **Type-Safe**: Full TypeScript implementation for robust code quality.
+- **Modern Styling**: Tailwind CSS v4 for utility-first, performant styling.
+
+## 🛠 Tech Stack
+
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **Animation**: [Framer Motion](https://www.framer.com/motion/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Fonts**: Inter Tight, JetBrains Mono, Space Grotesk
+- **Deployment**: Vercel
+
+## 📂 Project Structure
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+src/
+├── app/                  # App Router pages and layouts
+├── components/
+│   ├── features/         # Complex feature components (Hero, BentoGrid)
+│   ├── layout/           # Layout components (Header, Footer)
+│   └── ui/               # Reusable UI primitives (Buttons, Badges)
+├── lib/                  # Utilities and helper functions
+└── styles/               # Global styles and Tailwind configuration
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ⚡ Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Clone the repository:**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+   ```bash
+   git clone https://github.com/vibe-coding/spaceion-landing.git
+   cd spaceion-landing
+   ```
 
-## Learn More
+2. **Install dependencies:**
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   npm install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Run the development server:**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   npm run dev
+   ```
 
-## Deploy on Vercel
+4. **Open your browser:**
+   Navigate to [http://localhost:3000](http://localhost:3000) to view the project.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📜 Scripts
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `npm run dev`: Starts the development server.
+- `npm run build`: Builds the application for production.
+- `npm start`: Runs the built application in production mode.
+- `npm run lint`: Runs ESLint to check for code quality issues.
+- `npx tsc --noEmit`: Runs TypeScript type checking.
+
+## 🎨 Design Philosophy
+
+Spaceion follows a **"Neo-Minimalist / High-Density Swiss"** aesthetic:
+
+- **Typography**: Precision-focused, using a mix of grotesque sans-serifs and monospaced fonts for data.
+- **Color**: Strict monochrome palette with strategic accent colors (Holographic Blue, Signal Amber).
+- **Motion**: Physics-based transitions that feel weighty and responsive, not just decorative.
+
+---
+
+© 2026 Spaceion Network. All rights reserved.

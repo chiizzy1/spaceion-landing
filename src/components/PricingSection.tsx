@@ -112,7 +112,7 @@ export default function PricingSection() {
                 )}
               </div>
 
-              <h3 className="text-lg font-bold tracking-tight mb-2 uppercase">{tier.name}</h3>
+              <h3 className="text-lg font-display font-bold tracking-tight mb-2 uppercase">{tier.name}</h3>
               <p className="text-neutral-500 text-sm mb-6 h-10">{tier.description}</p>
 
               <div className="mb-6 pb-6 border-b border-neutral-100">

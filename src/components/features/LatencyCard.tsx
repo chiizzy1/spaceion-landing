@@ -12,7 +12,7 @@ export function LatencyCard() {
         <div className="w-10 h-10 bg-neutral-100 rounded-full flex items-center justify-center mb-4 border border-neutral-200">
           <Zap className="w-5 h-5 text-neutral-600" />
         </div>
-        <h3 className="text-xl font-bold uppercase tracking-tight mb-2">Engineered Latency</h3>
+        <h3 className="text-xl font-display font-bold uppercase tracking-tight mb-2">Engineered Latency</h3>
         <p className="text-sm text-neutral-500 font-light leading-relaxed">
           Sub-millisecond cold start times achieved through our proprietary edge-caching protocol and bare-metal control plane.
         </p>

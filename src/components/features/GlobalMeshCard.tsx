@@ -10,7 +10,7 @@ export function GlobalMeshCard() {
         <div className="w-10 h-10 bg-neutral-800 rounded-full flex items-center justify-center mb-4 border border-neutral-700">
           <Globe className="w-5 h-5 text-white" />
         </div>
-        <h3 className="text-xl font-bold uppercase tracking-tight mb-2">Global Mesh</h3>
+        <h3 className="text-xl font-display font-bold uppercase tracking-tight mb-2">Global Mesh</h3>
         <p className="text-sm text-neutral-400 font-light leading-relaxed">
           State is automatically replicated across 35 regions. Write to one node, read from any. Strong consistency guaranteed.
         </p>

@@ -9,7 +9,7 @@ export default function BentoGrid() {
   return (
     <section className="w-full max-w-[1440px] mx-auto py-32 px-6">
       <div className="flex flex-col mb-12 items-start">
-        <h2 className="text-4xl md:text-6xl font-bold tracking-tighter uppercase mb-2">System Metrics</h2>
+        <h2 className="text-4xl md:text-6xl font-display font-bold tracking-tighter uppercase mb-2">System Metrics</h2>
         <div className="h-px w-full bg-black/10 mt-4 relative">
           <div className="absolute left-0 top-0 h-1 w-12 bg-black"></div>
         </div>

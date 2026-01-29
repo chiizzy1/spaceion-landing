@@ -64,7 +64,7 @@ export default function FAQSection() {
                   onClick={() => setOpenIndex(openIndex === index ? null : index)}
                   className="w-full flex items-center justify-between py-8 px-6 text-left hover:bg-neutral-50 transition-colors"
                 >
-                  <span className="text-xl font-bold tracking-tight pr-8">
+                  <span className="text-xl font-display font-bold tracking-tight pr-8">
                     <span className="font-mono text-emerald-600 mr-4 text-sm opacity-50 group-hover:opacity-100 transition-opacity">
                       {String(index + 1).padStart(2, "0")}.
                     </span>

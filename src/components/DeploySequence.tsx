@@ -47,7 +47,7 @@ export default function DeploySequence() {
         <div className="space-y-8">
           <div className="mb-12">
             <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-400 mb-2 block">The Workflow</span>
-            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter">
+            <h2 className="text-4xl md:text-5xl font-display font-bold uppercase tracking-tighter">
               Push to Production <br />
               <span className="text-neutral-400">in Seconds.</span>
             </h2>
@@ -67,7 +67,7 @@ export default function DeploySequence() {
                 </span>
                 <div className="space-y-2">
                   <h3
-                    className={`text-xl font-bold uppercase tracking-tight transition-colors ${activeStep === index ? "text-black" : "text-neutral-400"}`}
+                    className={`text-xl font-display font-bold uppercase tracking-tight transition-colors ${activeStep === index ? "text-black" : "text-neutral-400"}`}
                   >
                     {step.title}
                   </h3>

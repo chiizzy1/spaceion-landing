@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
 import { MESH_DATA } from "@/data/mockData";
 import { Button } from "@/components/ui/button";
+import { ActiveNodeMesh } from "./graphics/ActiveNodeMesh";
 
 export default function InfrastructureMap() {
   return (
@@ -36,7 +37,7 @@ export default function InfrastructureMap() {
         </div>
 
         {/* Map Container */}
-        <div className="relative w-full aspect-[16/9] md:aspect-[2.5/1] bg-neutral-50 border border-black group overflow-hidden">
+        <div className="relative w-full aspect-video md:aspect-[2.5/1] bg-neutral-50 border border-black group overflow-hidden">
           {/* Grid Overlay */}
           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/grid-me.png')] opacity-10 pointer-events-none" />
 
@@ -45,36 +46,7 @@ export default function InfrastructureMap() {
             WORLD MESH
           </div>
 
-          {/* Data Points */}
-          {MESH_DATA.locations.map((loc, i) => (
-            <motion.div
-              key={i}
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.5, type: "spring" }}
-              className="absolute"
-              style={{ left: `${loc.x}%`, top: `${loc.y}%` }}
-            >
-              <div className="size-3 bg-black rounded-full animate-ping absolute inset-0 opacity-20" />
-              <div className="size-2 bg-black rounded-full relative z-10 border border-white box-content hover:scale-150 transition-transform cursor-crosshair" />
-            </motion.div>
-          ))}
-
-          {/* Connection Lines (SVG) */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none">
-            <motion.path
-              d="M 25% 30% Q 48% 20% 48% 25% T 75% 40%"
-              fill="none"
-              stroke="black"
-              strokeWidth="1"
-              strokeOpacity="0.1"
-              initial={{ pathLength: 0 }}
-              whileInView={{ pathLength: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 2, ease: "easeInOut" }}
-            />
-          </svg>
+          <ActiveNodeMesh />
         </div>
       </div>
     </section>

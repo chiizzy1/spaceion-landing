@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FEATURES_DATA } from "@/data/mockData";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
+import { MonitorWaveform } from "./graphics/MonitorWaveform";
 
 export default function FeatureEngine() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -66,19 +67,25 @@ export default function FeatureEngine() {
               </div>
 
               {/* Graphic */}
-              <div className="flex-1 flex items-center justify-center py-8">
-                {(() => {
-                  const Icon = FEATURES_DATA[activeIndex].icon;
-                  return (
-                    <motion.div
-                      initial={{ scale: 0.8, rotate: -10 }}
-                      animate={{ scale: 1, rotate: 0 }}
-                      transition={{ type: "spring", duration: 0.8 }}
-                    >
-                      <Icon className="w-32 h-32 stroke-[1px]" />
-                    </motion.div>
-                  );
-                })()}
+              <div className="flex-1 flex items-center justify-center py-8 relative w-full">
+                {activeIndex === 0 ? (
+                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="w-full h-full">
+                    <MonitorWaveform />
+                  </motion.div>
+                ) : (
+                  (() => {
+                    const Icon = FEATURES_DATA[activeIndex].icon;
+                    return (
+                      <motion.div
+                        initial={{ scale: 0.8, rotate: -10 }}
+                        animate={{ scale: 1, rotate: 0 }}
+                        transition={{ type: "spring", duration: 0.8 }}
+                      >
+                        <Icon className="w-32 h-32 stroke-[1px]" />
+                      </motion.div>
+                    );
+                  })()
+                )}
               </div>
 
               {/* Metrics */}

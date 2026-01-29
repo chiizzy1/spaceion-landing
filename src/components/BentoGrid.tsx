@@ -3,20 +3,24 @@
 import { Activity, ShieldCheck, ArrowRight } from "lucide-react";
 import { BENTO_DATA } from "@/data/mockData";
 import { Button } from "@/components/ui/button";
+import { OrbitalShield, UptimeGraph } from "./graphics/Spotlights";
 
 export default function BentoGrid() {
   return (
     <section className="w-full max-w-[1440px] mx-auto py-24 px-6">
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-[-1px]">
         {/* Metric Card */}
-        <div className="md:col-span-2 border border-black p-12 flex flex-col justify-between min-h-[340px] hover:bg-neutral-50 transition-colors bg-white group">
-          <div className="flex justify-between items-start">
+        <div className="md:col-span-2 border border-black p-12 flex flex-col justify-between min-h-[340px] hover:bg-neutral-50 transition-colors bg-white group relative overflow-hidden">
+          <div className="absolute inset-x-0 bottom-0 h-32 opacity-10 pointer-events-none text-emerald-500">
+            <UptimeGraph />
+          </div>
+          <div className="flex justify-between items-start relative z-10">
             <span className="font-mono text-sm uppercase text-neutral-500 tracking-widest group-hover:text-black transition-colors">
               {BENTO_DATA.uptime.label}
             </span>
             <Activity className="w-5 h-5 opacity-50 group-hover:opacity-100 transition-opacity" />
           </div>
-          <div>
+          <div className="relative z-10">
             <h3 className="text-7xl md:text-9xl font-bold tracking-tighter leading-none">
               {BENTO_DATA.uptime.value}
               <span className="text-4xl align-top ml-1">{BENTO_DATA.uptime.unit}</span>
@@ -31,7 +35,7 @@ export default function BentoGrid() {
             {BENTO_DATA.security.label}
           </span>
           <div className="flex flex-col items-center justify-center flex-1 gap-4 transform group-hover:scale-105 transition-transform duration-500">
-            <ShieldCheck className="w-16 h-16 stroke-1 text-black" />
+            <OrbitalShield />
             <div className="text-center space-y-1">
               <div className="text-2xl font-bold uppercase tracking-tight">{BENTO_DATA.security.standard}</div>
               <div className="text-sm font-mono text-neutral-500">{BENTO_DATA.security.type}</div>

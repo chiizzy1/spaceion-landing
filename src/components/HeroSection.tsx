@@ -5,18 +5,19 @@ import { ArrowRight, FileText } from "lucide-react";
 import { HERO_DATA } from "@/data/mockData";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { OrbitalCommand } from "./graphics/OrbitalCommand";
 
 export default function HeroSection() {
   return (
     <header className="relative w-full min-h-[85vh] flex flex-col items-center justify-center border-b border-black overflow-hidden pt-32 pb-24">
       {/* Background Decor */}
-      <div className="absolute inset-0 grid-bg pointer-events-none" />
+      <OrbitalCommand />
 
       <div className="relative z-10 max-w-[1440px] mx-auto px-6 flex flex-col items-center text-center gap-10">
         {/* Status Pill */}
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
           <Badge variant="status" className="pl-2 pr-4 py-1.5 gap-3 border border-black rounded-full">
-            <span className="w-2 h-2 rounded-full bg-[var(--color-signal-green)] animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-signal-green animate-pulse" />
             <span className="text-xs font-mono uppercase tracking-widest">{HERO_DATA.status}</span>
           </Badge>
         </motion.div>

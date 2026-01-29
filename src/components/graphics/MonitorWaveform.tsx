@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 export const MonitorWaveform = () => {
   return (
     <div className="relative w-full h-full flex items-center justify-center overflow-hidden bg-white/50">
-      {/* Grid Background */}
-      <div className="absolute inset-0 opacity-[0.08] bg-[linear-gradient(to_right,#000_1px,transparent_1px),linear-gradient(to_bottom,#000_1px,transparent_1px)] bg-[size:20px_20px]" />
+      {/* Background Grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.05)_1px,transparent_1px)] bg-size-[20px_20px]" />
 
       {/* Axis Lines */}
       <div className="absolute left-8 right-8 bottom-12 h-px bg-black/10 border-t border-dashed border-black/30" />

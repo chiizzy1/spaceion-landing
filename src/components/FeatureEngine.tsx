@@ -6,6 +6,8 @@ import { FEATURES_DATA } from "@/data/mockData";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { MonitorWaveform } from "./graphics/MonitorWaveform";
+import { ThroughputMatrix } from "./graphics/ThroughputMatrix";
+import { GlobalSync } from "./graphics/GlobalSync";
 
 export default function FeatureEngine() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -44,7 +46,7 @@ export default function FeatureEngine() {
 
         {/* Right: Visualization */}
         <div className="relative bg-neutral-50 flex items-center justify-center p-12 lg:p-24 min-h-[500px] lg:min-h-[auto] overflow-hidden">
-          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle,#000_1px,transparent_1px)] [background-size:20px_20px]" />
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.03)_1px,transparent_1px)] bg-size-[20px_20px]" />
 
           <AnimatePresence mode="wait">
             <motion.div
@@ -67,25 +69,11 @@ export default function FeatureEngine() {
               </div>
 
               {/* Graphic */}
-              <div className="flex-1 flex items-center justify-center py-8 relative w-full">
-                {activeIndex === 0 ? (
-                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="w-full h-full">
-                    <MonitorWaveform />
-                  </motion.div>
-                ) : (
-                  (() => {
-                    const Icon = FEATURES_DATA[activeIndex].icon;
-                    return (
-                      <motion.div
-                        initial={{ scale: 0.8, rotate: -10 }}
-                        animate={{ scale: 1, rotate: 0 }}
-                        transition={{ type: "spring", duration: 0.8 }}
-                      >
-                        <Icon className="w-32 h-32 stroke-[1px]" />
-                      </motion.div>
-                    );
-                  })()
-                )}
+              <div className="relative w-full aspect-square bg-neutral-100 rounded-lg overflow-hidden border border-black/10 flex items-center justify-center">
+                {/* Feature Visualization Switcher */}
+                {activeIndex === 0 && <MonitorWaveform />}
+                {activeIndex === 1 && <ThroughputMatrix />}
+                {activeIndex === 2 && <GlobalSync />}
               </div>
 
               {/* Metrics */}

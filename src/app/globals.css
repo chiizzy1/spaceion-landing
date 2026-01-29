@@ -4,13 +4,35 @@
   /* Dynamic Swiss Palette */
   --color-space-white: #ffffff;
   --color-space-black: #000000;
-  --color-signal-green: #22c55e;
-  --color-border-line: #333333;
-  --color-grid-line: rgba(0, 0, 0, 0.05);
+  --color-signal-green: #00cc44; /* More vivid digital green */
+  --color-border-line: #111111;
+  --color-grid-line: rgba(0, 0, 0, 0.06);
+  --color-text-dim: #666666;
 
   --font-sans: "Space Grotesk", sans-serif;
   --font-body: "Inter Tight", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
+
+  --ease-elastic: linear(
+    0,
+    0.009 8.5%,
+    0.035 16.2%,
+    0.076 23.2%,
+    0.132 29.6%,
+    0.201 35.5%,
+    0.282 40.9%,
+    0.372 45.9%,
+    0.47 50.7%,
+    0.574 55.4%,
+    0.681 60.1%,
+    0.787 65.2%,
+    0.887 70.9%,
+    0.969 77.8%,
+    1.018 85.3%,
+    1.033 90.5%,
+    1.033 96.1%,
+    1
+  );
 }
 
 :root {
@@ -23,23 +45,30 @@ body {
   background: var(--background);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
-/* Swiss Utilities (Stitch Extracted) */
+/* Swiss Utilities */
 .swiss-border {
-  border: 1px solid var(--color-space-black);
+  border: 1px solid var(--color-border-line);
 }
 .swiss-border-b {
-  border-bottom: 1px solid var(--color-space-black);
+  border-bottom: 1px solid var(--color-border-line);
 }
 .swiss-border-r {
-  border-right: 1px solid var(--color-space-black);
+  border-right: 1px solid var(--color-border-line);
 }
 
-/* Grid Background */
+/* Technical Grid Background */
 .grid-bg {
   background-size: 40px 40px;
   background-image:
     linear-gradient(to right, var(--color-grid-line) 1px, transparent 1px),
     linear-gradient(to bottom, var(--color-grid-line) 1px, transparent 1px);
+  mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
+}
+
+/* Kinetic Typography Utilities */
+.tracking-widest-swiss {
+  letter-spacing: 0.2em;
 }

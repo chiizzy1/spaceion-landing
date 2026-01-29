@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import SmoothScroll from "@/components/layout/SmoothScroll";
 
 // Import fonts directly from the installed packages
 import "@fontsource/space-grotesk/300.css";
@@ -21,7 +22,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased min-h-screen grid-bg">{children}</body>
+      <body className="antialiased min-h-screen grid-bg">
+        <SmoothScroll />
+        {children}
+      </body>
     </html>
   );
 }

@@ -2,12 +2,18 @@ import { Server, Globe, ShieldCheck, Activity, Terminal } from "lucide-react";
 
 export const HERO_DATA = {
   status: "System Operational",
+  statusPulse: true,
   title: "The Universal Runtime",
   description: "Serverless GPU inference at the edge. Engineered for the next generation of high-density AI applications.",
-  ctaPrimary: "Get Started",
+  ctaPrimary: "Deploy Node",
   ctaSecondary: "Read Manifest",
-  coord: "COORD: 47.3769° N, 8.5417° E", // Zurich (Swiss Style origin)
+  coord: "COORD: 47.3769° N, 8.5417° E",
   version: "STATUS: ACTIVE / V.2.0.4",
+  trust: {
+    label: "Trusted by Engineering Teams at",
+    companies: ["Sequoia", "Linear", "Vercel"],
+    metric: "127ms Cold Start",
+  },
 };
 
 export const FEATURES_DATA = [

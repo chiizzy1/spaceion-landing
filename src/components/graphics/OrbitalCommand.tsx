@@ -1,13 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
-
 export const OrbitalCommand = () => {
   return (
     <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden select-none">
       <svg className="absolute w-full h-full opacity-[0.15]" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice">
-        {/* Orbital Rings */}
-        <motion.circle
+        {/* Orbital Rings - CSS Animation */}
+        <circle
           cx="500"
           cy="500"
           r="300"
@@ -15,39 +13,28 @@ export const OrbitalCommand = () => {
           strokeWidth="1"
           fill="none"
           strokeDasharray="4 4"
-          initial={{ rotate: 0 }}
-          animate={{ rotate: 360 }}
-          transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
+          className="origin-center animate-[spin_120s_linear_infinite]"
         />
-        <motion.circle
+        <circle
           cx="500"
           cy="500"
           r="450"
           stroke="black"
           strokeWidth="0.5"
           fill="none"
-          initial={{ rotate: 0 }}
-          animate={{ rotate: -360 }}
-          transition={{ duration: 180, repeat: Infinity, ease: "linear" }}
+          className="origin-center animate-[spin_180s_linear_infinite_reverse]"
         />
 
-        {/* Floating Satellites */}
-        <motion.g
-          animate={{ rotate: 360 }}
-          transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-          style={{ originX: "500px", originY: "500px" }}
-        >
+        {/* Floating Satellites - CSS Animation */}
+        {/* We need groups for rotation centers */}
+        <g className="origin-center animate-[spin_60s_linear_infinite]">
           <circle cx="500" cy="200" r="4" fill="black" />
           <line x1="500" y1="200" x2="500" y2="220" stroke="black" strokeWidth="0.5" />
-        </motion.g>
+        </g>
 
-        <motion.g
-          animate={{ rotate: -360 }}
-          transition={{ duration: 90, repeat: Infinity, ease: "linear" }}
-          style={{ originX: "500px", originY: "500px" }}
-        >
+        <g className="origin-center animate-[spin_90s_linear_infinite_reverse]">
           <circle cx="800" cy="500" r="6" fill="transparent" stroke="black" strokeWidth="1" />
-        </motion.g>
+        </g>
       </svg>
 
       {/* Decorative Grid Overlay */}

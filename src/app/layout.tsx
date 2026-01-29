@@ -9,6 +9,10 @@ import "@fontsource/space-grotesk/700.css";
 import "@fontsource/inter-tight/400.css";
 import "@fontsource/inter-tight/500.css";
 import "@fontsource/jetbrains-mono/400.css";
+import "@fontsource/plus-jakarta-sans/400.css";
+import "@fontsource/plus-jakarta-sans/500.css";
+import "@fontsource/plus-jakarta-sans/700.css";
+import "@fontsource/plus-jakarta-sans/800.css";
 
 export const metadata: Metadata = {
   title: "Spaceion | The Universal Runtime for AI Agents",
@@ -22,7 +26,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased min-h-screen grid-bg">
+      <body className="antialiased min-h-screen relative">
+        <div className="fixed inset-0 z-[-1] grid-bg pointer-events-none" />
         <SmoothScroll />
         {children}
       </body>

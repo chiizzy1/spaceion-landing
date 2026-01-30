@@ -2,11 +2,71 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Check, Info, Zap, Shield, Globe, Cpu } from "lucide-react";
+import { Check } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { cn } from "@/lib/utils";
+
+// --- Micro-Schematics (Premium Icons) ---
+
+const MicroChip = () => (
+  <svg viewBox="0 0 24 24" className="w-5 h-5 text-neutral-700" fill="none" stroke="currentColor" strokeWidth="2">
+    <rect x="4" y="4" width="16" height="16" rx="2" strokeOpacity="0.5" />
+    <motion.path d="M9 9h6v6h-6z" fill="currentColor" fillOpacity="0.1" stroke="none" />
+    <path d="M9 9h6v6h-6z" strokeOpacity="1" />
+    {/* Animated Data Pins */}
+    {[6, 12, 18].map((offset, i) => (
+      <motion.path
+        key={i}
+        d={`M${offset} 4V2 M${offset} 20V22 M4 ${offset}H2 M20 ${offset}H22`}
+        strokeOpacity="0.5"
+        animate={{ strokeOpacity: [0.2, 1, 0.2] }}
+        transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
+      />
+    ))}
+  </svg>
+);
+
+const SineWave = () => (
+  <svg viewBox="0 0 24 24" className="w-5 h-5 text-neutral-700" fill="none" stroke="currentColor" strokeWidth="2">
+    <motion.path
+      d="M2 12c2.5-4 4.5-8 7-8s5 8 8 8 4.5-5 5-5"
+      strokeLinecap="round"
+      initial={{ pathLength: 0 }}
+      animate={{ pathLength: 1 }}
+      transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+    />
+  </svg>
+);
+
+const SecureNode = () => (
+  <svg viewBox="0 0 24 24" className="w-5 h-5 text-neutral-700" fill="none" stroke="currentColor" strokeWidth="2">
+    {/* Solid Shield Outline */}
+    <path d="M12 2l9 4v6c0 5.5-3.8 10.7-9 12-5.2-1.3-9-6.5-9-12V6l9-4z" strokeLinejoin="round" className="opacity-100" />
+    {/* Inner Pulsing Core */}
+    <motion.circle
+      cx="12"
+      cy="12"
+      r="3"
+      fill="currentColor"
+      initial={{ scale: 0.5, opacity: 0.5 }}
+      animate={{ scale: [0.8, 1.2, 0.8], opacity: [0.5, 1, 0.5] }}
+      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+    />
+    {/* Scanning Line effect (Subtle) */}
+    <motion.path
+      d="M12 2l9 4v6c0 5.5-3.8 10.7-9 12-5.2-1.3-9-6.5-9-12V6l9-4z"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinejoin="round"
+      initial={{ pathLength: 0, opacity: 0 }}
+      animate={{ pathLength: 1, opacity: 1 }}
+      transition={{ duration: 3, repeat: Infinity, ease: "linear", repeatDelay: 1 }}
+      className="opacity-50"
+    />
+  </svg>
+);
 
 const PRICING_TIERS = [
   {
@@ -17,7 +77,7 @@ const PRICING_TIERS = [
     features: ["100k requests/month", "Global Edge Network", "Community Support", "1 Project"],
     cta: "Start Building",
     featured: false,
-    icon: <Cpu className="w-5 h-5" />,
+    icon: <MicroChip />,
   },
   {
     name: "STARTUP",
@@ -27,7 +87,7 @@ const PRICING_TIERS = [
     features: ["2M requests/month included", "DDoS Protection (L3/L4)", "Team Management", "99.9% Uptime SLA", "5 Projects"],
     cta: "Upgrade to Pro",
     featured: true,
-    icon: <Zap className="w-5 h-5" />,
+    icon: <SineWave />,
   },
   {
     name: "SCALE",
@@ -44,7 +104,7 @@ const PRICING_TIERS = [
     ],
     cta: "Contact Sales",
     featured: false,
-    icon: <Shield className="w-5 h-5" />,
+    icon: <SecureNode />,
   },
 ];
 

@@ -20,6 +20,7 @@ const NAV_LINKS: NavLinkProps[] = [
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
 
   // Lock body scroll when menu is open
   useEffect(() => {
@@ -84,7 +85,7 @@ export default function Navigation() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50">
       {/* Desktop Glassmorphism Backdrop */}
-      <div className="absolute inset-0 bg-white/95 backdrop-blur-md border-b border-black/10 shadow-sm transition-all duration-300 lg:block hidden" />
+      <div className="absolute inset-0 bg-white/60 backdrop-blur-xl border-b border-white/20 shadow-[0_1px_0_0_rgba(0,0,0,0.05)] transition-all duration-300 lg:block hidden" />
 
       {/* Mobile Control Bar - Always Visible */}
       <div className="lg:hidden absolute top-0 left-0 right-0 h-16 bg-white/95 backdrop-blur-md border-b border-black/10 flex items-center justify-between px-6 z-50">
@@ -107,16 +108,23 @@ export default function Navigation() {
           <BrandLogo />
         </div>
 
-        {/* Desktop Links */}
-        <div className="hidden lg:flex items-center gap-12 pointer-events-auto">
+        {/* Desktop Links - Sliding Pill System */}
+        <div className="hidden lg:flex items-center gap-2 pointer-events-auto" onMouseLeave={() => setHoveredLink(null)}>
           {NAV_LINKS.map((link) => (
             <Link
               key={link.label}
               href={link.href}
-              className="text-xs font-bold uppercase tracking-widest-swiss text-black hover:text-signal-green transition-colors relative group"
+              onMouseEnter={() => setHoveredLink(link.label)}
+              className="relative px-4 py-2 text-xs font-bold uppercase tracking-widest text-black transition-colors group"
             >
-              {link.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-px bg-signal-green group-hover:w-full transition-all duration-300" />
+              <span className="relative z-10">{link.label}</span>
+              {hoveredLink === link.label && (
+                <motion.div
+                  layoutId="nav-pill"
+                  className="absolute inset-0 bg-neutral-100 rounded-md -z-0"
+                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                />
+              )}
             </Link>
           ))}
         </div>
@@ -131,7 +139,7 @@ export default function Navigation() {
           </Link>
           <Button
             size="sm"
-            className="gap-2 group bg-black text-white h-9 px-4 uppercase text-[10px] tracking-widest font-bold hover:bg-neutral-800 transition-all"
+            className="gap-2 group bg-black text-white h-9 px-4 uppercase text-[10px] tracking-widest font-bold hover:bg-neutral-800 transition-all active:scale-95"
           >
             Deploy Node
             <ArrowUpRight className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

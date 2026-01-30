@@ -53,9 +53,10 @@ export default function DeploySequence() {
             </h2>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-6 min-h-[360px]">
             {STEPS.map((step, index) => (
-              <div
+              <motion.div
+                layout
                 key={step.id}
                 onClick={() => setActiveStep(index)}
                 className={`cursor-pointer group flex gap-6 p-4 rounded-xl transition-all duration-300 ${activeStep === index ? "bg-neutral-50" : "hover:bg-neutral-50/50"}`}
@@ -71,7 +72,7 @@ export default function DeploySequence() {
                   >
                     {step.title}
                   </h3>
-                  <AnimatePresence>
+                  <AnimatePresence mode="popLayout">
                     {activeStep === index && (
                       <motion.p
                         initial={{ opacity: 0, height: 0 }}
@@ -84,7 +85,7 @@ export default function DeploySequence() {
                     )}
                   </AnimatePresence>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
